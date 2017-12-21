@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: ample90-hasura
+  data: null
+  kubeContext: ample90
+  name: ample90

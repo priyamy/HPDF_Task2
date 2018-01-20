@@ -1,0 +1,32 @@
+- args:
+    sql: "CREATE TABLE football_europe\r\n(\r\nno int,\r\nid int,\r\nhometacklestotalht
+      int,\r\nhomeshotstotalht int,\r\nawaydispossessedft int,\r\nawaypasssuccessft
+      numeric,\r\nawayratingsft numeric,\r\nawaydribblesuccessft numeric,\r\nawaydribblesattemptedht
+      int,\r\nawayteamlineup text,\r\nawayshotsblockedht int,\r\nawayshotstotalht
+      int,\r\nhomedribblesuccessht numeric,\r\nhomefoulscommitedft int,\r\nhomeaerialstotalft
+      int,\r\nhomeratingsht numeric,\r\nawayshotsontargetft int,\r\nawayshotsblockedft
+      int,\r\nhomeinterceptionsht int,\r\nawaypossessionht numeric,\r\nhomepasseskeyft
+      int,\r\nawayshotsontargetht int,\r\nawaydribbleswonft int,\r\nawaytacklesuccessht
+      numeric,\r\nhomecornerstotalft int,\r\nhomeaerialstotalht int,\r\nhomeshotsblockedft
+      int,\r\nawaycornerstotalht int,\r\nhomecornerstotalht int,\r\nhomedribblesuccessft
+      numeric,\r\nhometeamlineup text,\r\nawaypasssuccessht numeric,\r\nawaydribbleswonht
+      int,\r\nhomedispossessedht int,\r\nawayaerialstotalft int,\r\nhomeshotsblockedht
+      int,\r\nawaypasseskeyft int,\r\nhometacklesuccessht numeric,\r\nawaypasseskeyht
+      int,\r\nhomeformation int,\r\nawayinterceptionsht int,\r\nawaydispossessedht
+      int,\r\nrefereename text,\r\nhomedribbleswonht int,\r\nhomepossessionft numeric,\r\nawayaerialstotalht
+      int,\r\nawaygoalht int,\r\nawaymanagername text,\r\nawayinterceptionsft int,\r\nhomedribbledpastft
+      int,\r\nhomegoalht int,\r\nawaydribblesuccessht numeric,\r\nhomegoalft int,\r\nawaytacklestotalht
+      int,\r\nhomedribbleswonft int,\r\nawaytacklesuccessft numeric,\r\nawayteam text,\r\nhomedispossessedft
+      int,\r\nawayoffsidescaughtft int,\r\nawaydribbledpastft int,\r\nhomeshotsontargetht
+      int,\r\nawayformation int,\r\nawayoffsidescaughtht int,\r\nhomedribbledpastht
+      int,\r\nawayfoulscommitedht int,\r\nhomeshotstotalft int,\r\nhomepasssuccessft
+      numeric,\r\nhomefoulscommitedht int,\r\nawaycornerstotalft int,\r\nhometeam
+      text,\r\nhomemanagername text,\r\nawayfoulscommitedft int,\r\nhomeshotsontargetft
+      int, \r\nhomedribblesattemptedht int,\r\nawayratingsht numeric,\r\nhomeoffsidescaughtht
+      int,\r\nhometacklestotalft int,\r\nawaydribbledpastht int,\r\nawaygoalft int,\r\nhomepasseskeyht
+      int,\r\nhomeoffsidescaughtft int,\r\nhomepossessionht numeric,\r\nvenuename
+      text,\r\nawaydribblesattemptedft int,\r\nhomeinterceptionsft int,\r\nhomepasssuccessht
+      numeric,\r\ndate date,   \r\nawaytacklestotalft int,\r\nhomeratingsft numeric,\r\nhomedribblesattemptedft
+      int,\r\nhometacklesuccessft numeric,\r\nawaypossessionft numeric,\r\nawayshotstotalft
+      int,\r\ndivision text\r\n\r\n);\r\n"
+  type: run_sql

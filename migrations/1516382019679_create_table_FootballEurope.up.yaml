@@ -1,0 +1,8 @@
+- args:
+    sql: CREATE TABLE "FootballEurope"("id" integer NOT NULL, "homeTacklesTotalHT"
+      integer NOT NULL, "homeShotsTotalHT" integer NOT NULL, "awayDispossessedFT"
+      integer NOT NULL, "awayPassSuccessFT" numeric NOT NULL, PRIMARY KEY ("id") )
+  type: run_sql
+- args:
+    name: FootballEurope
+  type: add_existing_table_or_view

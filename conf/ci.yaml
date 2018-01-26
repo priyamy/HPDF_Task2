@@ -12,6 +12,11 @@ remotes:
       api:
         dockerfile: microservices/api/Dockerfile
         path: microservices/api
+    '{{ cluster.metadata.namespaces.user }}.ui':
+      ui:
+        dockerfile: microservices/ui/Dockerfile
+        path: microservices/ui
+
     # Add new remotes here above this line
     # Example:
 

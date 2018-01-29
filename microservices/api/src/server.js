@@ -5,6 +5,7 @@ const request1=require('request');
 const request2=require('request');
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
+var fetchAction =  require('node-fetch');
 
 //Create an object named app for Express application 
 const app=express();
@@ -89,6 +90,59 @@ app.get('/authors',(req,res) => {
 	});
 	
 });
+
+app.get('/test', (req,res) => {
+var url = "https://data.ample90.hasura-app.io/v1/query";
+
+var requestOptions = {
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json"
+    }
+};
+
+var body = {
+    "type": "select",
+    "args": {
+        "table": "author",
+        "columns": [
+            "name"
+        ],
+        "where": {
+            "id": {
+                "$eq": "1"
+            }
+        }
+    }
+};
+
+requestOptions.body = JSON.stringify(body);
+
+fetchAction(url, requestOptions)
+.then(function(response) {
+	return response.json();
+})
+.then(function(result) {
+	
+	res.send(result[0].name);
+	console.log(JSON.stringify(result[0].name));
+})
+.catch(function(error) {
+	console.log('Request Failed:' + error);
+});
+
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 let port=8080;

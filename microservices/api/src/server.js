@@ -183,6 +183,21 @@ app.get('/webhook1', (req,res) => {
 
 
 
+app.get('/signup', (req,res) => {
+  var url1 = "https://auth.ample90.hasura-app.io/v1/signup";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {      "provider": "username",      "data": {          "username": "john2smith",          "password": "js@hasura"      }  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url1, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
+
+});
+app.get('/login', (req,res) => {
+  var url2 = "https://auth.ample90.hasura-app.io/v1/login";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {      "provider": "username",      "data": {          "username": "johnsmith",          "password": "js@hasura"      }  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url2, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   console.log(result);   // To save the auth token received to offline storage   // var authToken = result.auth_token   // window.localStorage.setItem('HASURA_AUTH_TOKEN', authToken);  })  .catch(function(error) {  console.log('Request Failed:' + error);});
+});
 
 
 let port=8080;

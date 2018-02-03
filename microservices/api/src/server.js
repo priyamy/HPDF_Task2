@@ -90,89 +90,27 @@ app.get('/authors',(req,res) => {
 	});
 	
 });
-
 app.get('/webhooktest',(req,res) => res.render('input1'));
-
-app.get('/test', (req,res) => {
-var url = "https://data.ample90.hasura-app.io/v1/query";
-
-var requestOptions = {
-    "method": "POST",
-    "headers": {
-        "Content-Type": "application/json"
-    }
-};
-
-var body = {
-    "type": "select",
-    "args": {
-        "table": "author",
-        "columns": [
-            "name"
-        ],
-        "where": {
-            "id": {
-                "$eq": "1"
-            }
-        }
-    }
-};
-
+app.get('/test', (req,res) => {var url = "https://data.ample90.hasura-app.io/v1/query";
+var requestOptions = {    "method": "POST",    "headers": {        "Content-Type": "application/json"    }};
+var body = {    "type": "select",    "args": {        "table": "author",        "columns": [            "name"        ],        "where": {            "id": {                "$eq": "1"            }        }    }};
 requestOptions.body = JSON.stringify(body);
-
-fetchAction(url, requestOptions)
-.then(function(response) {
-	return response.json();
-})
-.then(function(result) {
-	
-	res.send(result[0].name);
-	console.log(JSON.stringify(result[0].name));
-})
-.catch(function(error) {
-	console.log('Request Failed:' + error);
+fetchAction(url, requestOptions).then(function(response) { return response.json();}).then(function(result) {  res.send(result[0].name); console.log(JSON.stringify(result[0].name));}).catch(function(error) { console.log('Request Failed:' + error);});
 });
-
+app.get('/signuptest',(req,res) => res.render('input2'));
+app.post('/signuptest',urlencodedParser, function (req, res) {   var url3 = "https://auth.ample90.hasura-app.io/v1/signup";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {      "provider": "username",      "data": {          "username": req.body.username,          "password": req.body.password      }  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url3, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
 });
-
-
-
 app.get('/webhook', (req,res) => {
-
-		var url = "https://hooks.zapier.com/hooks/catch/2931424/z6cita/";
-
-		var requestOptions = {
-		    "method": "POST",
-		    "headers": {
-		        "Content-Type": "application/json"
-		    }
-		};
-
-		var body = {
-		        "username": "testing",
-		        "password": "hasura"
-		};
-
-		requestOptions.body = JSON.stringify(body);
-
-		fetchAction(url, requestOptions)
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(result) {
-			//res.send(result);
-			console.log(JSON.stringify(result));
-		})
-		.catch(function(error) {
-			console.log('Request Failed:' + error);
-		});
-
-
+  var url = "https://hooks.zapier.com/hooks/catch/2931424/z6cita/";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {          "username": "testing",          "password": "hasura"  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   //res.send(result);   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
 });
-
-
-
-
 app.get('/webhook1', (req,res) => {
   var url = "https://hooks.zapier.com/hooks/catch/2931424/z67mpy/";
   var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
@@ -180,16 +118,19 @@ app.get('/webhook1', (req,res) => {
   requestOptions.body = JSON.stringify(body);
   fetchAction(url, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   //res.send(result);   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
 });
-
-
-
+app.get('/webhook3', (req,res) => {
+  var urljs = "https://hooks.zapier.com/hooks/catch/2931424/ztu8sp/";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {          "name": "testing",          "email": "asdsa",          "address": "dfjdfns",          "bday": "2018-02-03",          "age": "10",          "gender": "Female"  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(urljs, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   //res.send(result);   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
+});
 app.get('/signup', (req,res) => {
   var url1 = "https://auth.ample90.hasura-app.io/v1/signup";
   var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
   var body = {      "provider": "username",      "data": {          "username": "john2smith",          "password": "js@hasura"      }  };
   requestOptions.body = JSON.stringify(body);
   fetchAction(url1, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
-
 });
 app.get('/login', (req,res) => {
   var url2 = "https://auth.ample90.hasura-app.io/v1/login";
@@ -199,6 +140,4 @@ app.get('/login', (req,res) => {
   fetchAction(url2, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   console.log(result);   // To save the auth token received to offline storage   // var authToken = result.auth_token   // window.localStorage.setItem('HASURA_AUTH_TOKEN', authToken);  })  .catch(function(error) {  console.log('Request Failed:' + error);});
 });
 
-
-let port=8080;
-app.listen(8080,() => console.log(`App listening on port ${port}`));
+let port=8080;app.listen(8080,() => console.log(`App listening on port ${port}`));

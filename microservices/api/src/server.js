@@ -173,6 +173,13 @@ app.get('/webhook', (req,res) => {
 
 
 
+app.get('/webhook1', (req,res) => {
+  var url = "https://hooks.zapier.com/hooks/catch/2931424/z67mpy/";
+  var requestOptions = {      "method": "POST",      "headers": {          "Content-Type": "application/json"      }  };
+  var body = {          "name": "testing",          "age": "10",          "profession": "xyz"  };
+  requestOptions.body = JSON.stringify(body);
+  fetchAction(url, requestOptions)  .then(function(response) {   return response.json();  })  .then(function(result) {   //res.send(result);   console.log(JSON.stringify(result));  })  .catch(function(error) {   console.log('Request Failed:' + error);  });
+});
 
 
 

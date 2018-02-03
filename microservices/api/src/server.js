@@ -91,6 +91,8 @@ app.get('/authors',(req,res) => {
 	
 });
 
+app.get('/webhooktest',(req,res) => res.render('input1'));
+
 app.get('/test', (req,res) => {
 var url = "https://data.ample90.hasura-app.io/v1/query";
 
@@ -135,7 +137,38 @@ fetchAction(url, requestOptions)
 
 
 
+app.get('/webhook', (req,res) => {
 
+		var url = "https://hooks.zapier.com/hooks/catch/2931424/z6cita/";
+
+		var requestOptions = {
+		    "method": "POST",
+		    "headers": {
+		        "Content-Type": "application/json"
+		    }
+		};
+
+		var body = {
+		        "username": "testing",
+		        "password": "hasura"
+		};
+
+		requestOptions.body = JSON.stringify(body);
+
+		fetchAction(url, requestOptions)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(result) {
+			//res.send(result);
+			console.log(JSON.stringify(result));
+		})
+		.catch(function(error) {
+			console.log('Request Failed:' + error);
+		});
+
+
+});
 
 
 
